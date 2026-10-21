@@ -18,7 +18,9 @@ export default defineConfig([
       'no-console': 'error',
     },
   },
-  { files: ['**/*.md'], plugins: { markdown }, language: 'markdown/commonmark', extends: ['markdown/recommended'] },
+  { files: ['**/*.md'], plugins: { markdown }, language: 'markdown/commonmark', extends: ['markdown/recommended'],  rules: {
+    "markdown/fenced-code-language": "off",
+  } },
   { files: ['**/*.css'], plugins: { css }, language: 'css/css', extends: ['css/recommended'] },
   { files: ['**/*.html'], plugins: { html }, language: 'html/html', extends: [html.configs['flat/recommended']] },
   eslintConfigPrettier,
