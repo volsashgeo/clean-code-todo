@@ -18,11 +18,25 @@ export default defineConfig([
       'no-console': 'error',
     },
   },
-  { files: ['**/*.md'], plugins: { markdown }, language: 'markdown/commonmark', extends: ['markdown/recommended'],  rules: {
-    "markdown/fenced-code-language": "off",
-    "markdown/no-missing-label-refs": "off",
-  } },
+  {
+    files: ['**/*.md'],
+    plugins: { markdown },
+    language: 'markdown/commonmark',
+    extends: ['markdown/recommended'],
+    rules: {
+      'markdown/fenced-code-language': 'off',
+      'markdown/no-missing-label-refs': 'off',
+    },
+  },
   { files: ['**/*.css'], plugins: { css }, language: 'css/css', extends: ['css/recommended'] },
-  { files: ['**/*.html'], plugins: { html }, language: 'html/html', extends: [html.configs['flat/recommended']] },
+  {
+    files: ['**/*.html'],
+    plugins: { html },
+    language: 'html/html',
+    extends: [html.configs['flat/recommended']],
+    rules: {
+      '@html-eslint/no-extra-spacing-tags': 'off',
+    },
+  },
   eslintConfigPrettier,
 ]);
