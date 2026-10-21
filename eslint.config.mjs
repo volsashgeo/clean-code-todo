@@ -36,6 +36,7 @@ export default defineConfig([
     extends: [html.configs['flat/recommended']],
     rules: {
       '@html-eslint/no-extra-spacing-tags': 'off',
+      '@html-eslint/require-closing-tags': 'off',
     },
   },
   eslintConfigPrettier,
