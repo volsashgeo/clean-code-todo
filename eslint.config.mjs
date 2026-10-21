@@ -38,6 +38,7 @@ export default defineConfig([
       '@html-eslint/no-extra-spacing-tags': 'off',
       '@html-eslint/require-closing-tags': 'off',
       '@html-eslint/attrs-newline': 'off',
+      '@html-eslint/indent': ['error', 2],
     },
   },
   eslintConfigPrettier,
