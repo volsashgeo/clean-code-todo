@@ -1,0 +1,25 @@
+import js from '@eslint/js';
+import globals from 'globals';
+import markdown from '@eslint/markdown';
+import css from '@eslint/css';
+import html from '@html-eslint/eslint-plugin';
+import { defineConfig } from 'eslint/config';
+import eslintConfigPrettier from 'eslint-config-prettier';
+
+export default defineConfig([
+  {
+    files: ['**/*.{js,mjs,cjs}'],
+    plugins: { js },
+    extends: ['js/recommended'],
+    languageOptions: { globals: globals.browser },
+    rules: {
+      'no-var': 'error',
+      'prefer-const': 'error',
+      'no-console': 'error',
+    },
+  },
+  { files: ['**/*.md'], plugins: { markdown }, language: 'markdown/commonmark', extends: ['markdown/recommended'] },
+  { files: ['**/*.css'], plugins: { css }, language: 'css/css', extends: ['css/recommended'] },
+  { files: ['**/*.html'], plugins: { html }, language: 'html/html', extends: [html.configs['flat/recommended']] },
+  eslintConfigPrettier,
+]);
