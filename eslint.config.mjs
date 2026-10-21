@@ -20,6 +20,7 @@ export default defineConfig([
   },
   { files: ['**/*.md'], plugins: { markdown }, language: 'markdown/commonmark', extends: ['markdown/recommended'],  rules: {
     "markdown/fenced-code-language": "off",
+    "markdown/no-missing-label-refs": "off",
   } },
   { files: ['**/*.css'], plugins: { css }, language: 'css/css', extends: ['css/recommended'] },
   { files: ['**/*.html'], plugins: { html }, language: 'html/html', extends: [html.configs['flat/recommended']] },
