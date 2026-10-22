@@ -102,10 +102,10 @@ const markTaskCompleted = function () {
   //Append the task list item to the #completed-tasks
   const taskToComplete = this.parentNode;
   completedTasksList.appendChild(taskToComplete);
-  bindTaskEvents(taskToComplete, taskIncomplete);
+  bindTaskEvents(taskToComplete, markTaskIncomplete);
 };
 
-const taskIncomplete = function () {
+const markTaskIncomplete = function () {
   //Mark task as incomplete.
   //When the checkbox is unchecked
   //Append the task list item to the #incompleteTasks.
@@ -140,7 +140,7 @@ const bindEventsToAllTasks = function (listHolder, toggleHandler) {
 };
 
 bindEventsToAllTasks(incompleteTasksList, markTaskCompleted);
-bindEventsToAllTasks(completedTasksList, taskIncomplete);
+bindEventsToAllTasks(completedTasksList, markTaskIncomplete);
 
 // Issues with usability don't get seen until they are in front of a human tester.
 
