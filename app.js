@@ -3,35 +3,53 @@ const addButton = document.getElementsByTagName('button')[0]; //first button
 const incompleteTasksList = document.getElementById('incompleteTasks');
 const completedTasksList = document.getElementById('completed-tasks');
 
-const createNewTask = function (taskString) {
-  const newTask = document.createElement('li');
+const createCheckbox = () => {
   const checkBox = document.createElement('input');
-  const label = document.createElement('label');
-  const editInput = document.createElement('input');
-  const editButton = document.createElement('button');
-  const deleteButton = document.createElement('button');
-  const deleteIcon = document.createElement('img');
-
-  label.innerText = taskString;
-  label.className = 'task-label';
-
   checkBox.type = 'checkbox';
+  return checkBox;
+};
+
+const createLabel = (text) => {
+  const label = document.createElement('label');
+  label.innerText = text;
+  label.className = 'task-label';
+  return label;
+};
+
+const createEditInput = () => {
+  const editInput = document.createElement('input');
   editInput.type = 'text';
   editInput.className = 'task';
+  return editInput;
+};
 
+const createEditButton = () => {
+  const editButton = document.createElement('button');
   editButton.innerText = 'Edit'; //innerText encodes special characters, HTML does not.
   editButton.className = 'edit';
+  return editButton;
+};
 
+const createDeleteButton = () => {
+  const deleteButton = document.createElement('button');
   deleteButton.className = 'delete';
+
+  const deleteIcon = document.createElement('img');
   deleteIcon.src = './remove.svg';
+
   deleteButton.appendChild(deleteIcon);
+  return deleteButton;
+};
 
-  newTask.appendChild(checkBox);
-  newTask.appendChild(label);
-  newTask.appendChild(editInput);
-  newTask.appendChild(editButton);
-  newTask.appendChild(deleteButton);
-
+const createNewTask = (taskString) => {
+  const newTask = document.createElement('li');
+  newTask.append(
+    createCheckbox(),
+    createLabel(taskString),
+    createEditInput(),
+    createEditButton(),
+    createDeleteButton(),
+  );
   return newTask;
 };
 
