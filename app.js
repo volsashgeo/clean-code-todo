@@ -14,7 +14,7 @@ const completedTasksList = document.getElementById('completed-tasks'); //complet
 
 //New task list item
 const createNewTaskElement = function (taskString) {
-  const listItem = document.createElement('li');
+  const newTask = document.createElement('li');
 
   //input (checkbox)
   const checkBox = document.createElement('input'); //checkbx
@@ -45,12 +45,12 @@ const createNewTaskElement = function (taskString) {
   deleteButton.appendChild(deleteButtonImg);
 
   //and appending.
-  listItem.appendChild(checkBox);
-  listItem.appendChild(label);
-  listItem.appendChild(editInput);
-  listItem.appendChild(editButton);
-  listItem.appendChild(deleteButton);
-  return listItem;
+  newTask.appendChild(checkBox);
+  newTask.appendChild(label);
+  newTask.appendChild(editInput);
+  newTask.appendChild(editButton);
+  newTask.appendChild(deleteButton);
+  return newTask;
 };
 
 const addTask = function () {
