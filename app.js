@@ -67,7 +67,7 @@ const addTask = function () {
 
 //Edit an existing task.
 
-const editTask = function () {
+const toggleEditMode = function () {
   const taskToEdit = this.parentNode;
 
   const editInput = taskToEdit.querySelector('input[type=text]');
@@ -125,8 +125,8 @@ const bindTaskEvents = function (taskListItem, toggleHandler) {
   const editButton = taskListItem.querySelector('button.edit');
   const deleteButton = taskListItem.querySelector('button.delete');
 
-  //Bind editTask to edit button.
-  editButton.onclick = editTask;
+  //Bind toggleEditMode to edit button.
+  editButton.onclick = toggleEditMode;
   //Bind deleteTask to delete button.
   deleteButton.onclick = deleteTask;
   //Bind taskCompleted to toggleHandler.
