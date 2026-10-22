@@ -4,21 +4,21 @@ body {
   color: #333;
   font-family: Lato, sans-serif;
 }
-.aaa {
+.eisenhower-matrix-block {
   width: 500px;
   margin: 0 auto;
   display: block;
   text-align: right;
 }
-.aaa img {
+.eisenhower-matrix-block img {
   width: 100%;
 }
-.aaa .more_inf {
+.eisenhower-matrix-block .more_inf {
   font-family: fantasy, cursive;
 }
 
 @media (max-width: 768px) {
-  .aaa {
+  .eisenhower-matrix-block {
     text-align: center;
   }
 }
