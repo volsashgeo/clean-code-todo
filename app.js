@@ -68,12 +68,12 @@ const addTask = function () {
 //Edit an existing task.
 
 const editTask = function () {
-  const listItem = this.parentNode;
+  const taskToEdit = this.parentNode;
 
-  const editInput = listItem.querySelector('input[type=text]');
-  const label = listItem.querySelector('label');
-  const editBtn = listItem.querySelector('.edit');
-  const isEditMode = listItem.classList.contains('editMode');
+  const editInput = taskToEdit.querySelector('input[type=text]');
+  const label = taskToEdit.querySelector('label');
+  const editBtn = taskToEdit.querySelector('.edit');
+  const isEditMode = taskToEdit.classList.contains('editMode');
   //If class of the parent is .editmode
   if (isEditMode) {
     //switch to .editmode
@@ -86,7 +86,7 @@ const editTask = function () {
   }
 
   //toggle .editmode on the parent.
-  listItem.classList.toggle('editMode');
+  taskToEdit.classList.toggle('editMode');
 };
 
 //Delete task.
