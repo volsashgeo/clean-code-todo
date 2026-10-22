@@ -54,7 +54,7 @@ const createNewTask = (taskString) => {
 };
 
 const addTask = function () {
-  if (!newTaskInput.value) return;
+  if (!newTaskInput.value.trim()) return;
   const task = createNewTask(newTaskInput.value);
 
   incompleteTasksList.appendChild(task);
