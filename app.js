@@ -109,9 +109,9 @@ const taskIncomplete = function () {
   //Mark task as incomplete.
   //When the checkbox is unchecked
   //Append the task list item to the #incompleteTasks.
-  const listItem = this.parentNode;
-  incompleteTasksList.appendChild(listItem);
-  bindTaskEvents(listItem, taskCompleted);
+  const taskToIncomplete = this.parentNode;
+  incompleteTasksList.appendChild(taskToIncomplete);
+  bindTaskEvents(taskToIncomplete, taskCompleted);
 };
 
 //The glue to hold it all together.
