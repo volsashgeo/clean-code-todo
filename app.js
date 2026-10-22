@@ -91,10 +91,10 @@ const editTask = function () {
 
 //Delete task.
 const deleteTask = function () {
-  const listItem = this.parentNode;
-  const ul = listItem.parentNode;
+  const taskToDelete = this.parentNode;
+  const ul = taskToDelete.parentNode;
   //Remove the parent list item from the ul.
-  ul.removeChild(listItem);
+  ul.removeChild(taskToDelete);
 };
 
 //Mark task completed
