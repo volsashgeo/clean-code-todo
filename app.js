@@ -133,9 +133,9 @@ const bindTaskEvents = function (taskListItem, toggleHandler) {
   checkBox.onchange = toggleHandler;
 };
 
-const bindEventsToAllTasks = function (listHolder, toggleHandler) {
-  for (let i = 0; i < listHolder.children.length; i++) {
-    bindTaskEvents(listHolder.children[i], toggleHandler);
+const bindEventsToAllTasks = function (taskList, toggleHandler) {
+  for (let i = 0; i < taskList.children.length; i++) {
+    bindTaskEvents(taskList.children[i], toggleHandler);
   }
 };
 
