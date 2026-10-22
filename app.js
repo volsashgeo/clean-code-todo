@@ -60,7 +60,7 @@ const addTask = function () {
 
   //Append task to incompleteTasksList
   incompleteTasksList.appendChild(task);
-  bindTaskEvents(task, taskCompleted);
+  bindTaskEvents(task, markTaskCompleted);
 
   newTaskInput.value = '';
 };
@@ -98,7 +98,7 @@ const deleteTask = function () {
 };
 
 //Mark task completed
-const taskCompleted = function () {
+const markTaskCompleted = function () {
   //Append the task list item to the #completed-tasks
   const taskToComplete = this.parentNode;
   completedTasksList.appendChild(taskToComplete);
@@ -111,7 +111,7 @@ const taskIncomplete = function () {
   //Append the task list item to the #incompleteTasks.
   const taskToIncomplete = this.parentNode;
   incompleteTasksList.appendChild(taskToIncomplete);
-  bindTaskEvents(taskToIncomplete, taskCompleted);
+  bindTaskEvents(taskToIncomplete, markTaskCompleted);
 };
 
 //The glue to hold it all together.
@@ -129,7 +129,7 @@ const bindTaskEvents = function (taskListItem, toggleHandler) {
   editButton.onclick = toggleEditMode;
   //Bind deleteTask to delete button.
   deleteButton.onclick = deleteTask;
-  //Bind taskCompleted to toggleHandler.
+  //Bind markTaskCompleted to toggleHandler.
   checkBox.onchange = toggleHandler;
 };
 
@@ -139,7 +139,7 @@ const bindEventsToAllTasks = function (listHolder, toggleHandler) {
   }
 };
 
-bindEventsToAllTasks(incompleteTasksList, taskCompleted);
+bindEventsToAllTasks(incompleteTasksList, markTaskCompleted);
 bindEventsToAllTasks(completedTasksList, taskIncomplete);
 
 // Issues with usability don't get seen until they are in front of a human tester.
