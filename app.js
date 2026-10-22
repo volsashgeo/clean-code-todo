@@ -133,14 +133,14 @@ const bindTaskEvents = function (taskListItem, toggleHandler) {
   checkBox.onchange = toggleHandler;
 };
 
-const bindTasksInList = function (listHolder, toggleHandler) {
+const bindEventsToAllTasks = function (listHolder, toggleHandler) {
   for (let i = 0; i < listHolder.children.length; i++) {
     bindTaskEvents(listHolder.children[i], toggleHandler);
   }
 };
 
-bindTasksInList(incompleteTasksList, taskCompleted);
-bindTasksInList(completedTasksList, taskIncomplete);
+bindEventsToAllTasks(incompleteTasksList, taskCompleted);
+bindEventsToAllTasks(completedTasksList, taskIncomplete);
 
 // Issues with usability don't get seen until they are in front of a human tester.
 
