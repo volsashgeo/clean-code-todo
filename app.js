@@ -27,7 +27,7 @@ const createNewTask = function (taskString) {
 
   //button.delete
   const deleteButton = document.createElement('button'); //delete button
-  const deleteButtonImg = document.createElement('img'); //delete button image
+  const deleteIcon = document.createElement('img'); //delete button image
 
   label.innerText = taskString;
   label.className = 'task';
@@ -41,8 +41,8 @@ const createNewTask = function (taskString) {
   editButton.className = 'edit';
 
   deleteButton.className = 'delete';
-  deleteButtonImg.src = './remove.svg';
-  deleteButton.appendChild(deleteButtonImg);
+  deleteIcon.src = './remove.svg';
+  deleteButton.appendChild(deleteIcon);
 
   //and appending.
   newTask.appendChild(checkBox);
