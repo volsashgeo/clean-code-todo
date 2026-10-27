@@ -23,7 +23,8 @@
   },
   "homepage": "https://github.com/volsashgeo/clean-code-todo#readme",
   "lint-staged": {
-    "**/*.{js,ts,jsx,tsx,json,css,md}": "prettier"
+    "*.js": "eslint",
+    "*": "prettier --check --ignore-unknown"
   },
   "devDependencies": {
     "@eslint/css": "^2.0.1",
