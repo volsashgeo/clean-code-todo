@@ -58,7 +58,7 @@ const addTask = function () {
   const task = createNewTask(newTaskInput.value);
 
   incompleteTasksList.appendChild(task);
-  bindTaskEvents(task, markTaskCompleted);
+  bindTaskEvents(task, toggleTask);
 
   newTaskInput.value = '';
 };
@@ -87,37 +87,24 @@ const deleteTask = function () {
   ul.removeChild(taskToDelete);
 };
 
-const markTaskCompleted = function () {
-  const taskToComplete = this.parentNode;
-
-  completedTasksList.appendChild(taskToComplete);
-  bindTaskEvents(taskToComplete, markTaskIncomplete);
+const toggleTask = function () {
+  const task = this.parentNode;
+  const targetList = this.checked ? completedTasksList : incompleteTasksList;
+  targetList.appendChild(task);
+  bindTaskEvents(task, toggleTask);
 };
 
-const markTaskIncomplete = function () {
-  const taskToIncomplete = this.parentNode;
+function bindTaskEvents(taskListItem, toggleHandler = toggleTask) {
+  taskListItem.querySelector('input[type=checkbox]').onchange = toggleHandler;
+  taskListItem.querySelector('button.edit').onclick = toggleEditMode;
+  taskListItem.querySelector('button.delete').onclick = deleteTask;
+}
 
-  incompleteTasksList.appendChild(taskToIncomplete);
-  bindTaskEvents(taskToIncomplete, markTaskCompleted);
-};
+function bindEventsToAllTasks(taskList) {
+  [...taskList.children].forEach((task) => bindTaskEvents(task, toggleTask));
+}
+
+bindEventsToAllTasks(incompleteTasksList);
+bindEventsToAllTasks(completedTasksList);
 
 addButton.addEventListener('click', addTask);
-
-const bindTaskEvents = function (taskListItem, toggleHandler) {
-  const checkBox = taskListItem.querySelector('input[type=checkbox]');
-  const editButton = taskListItem.querySelector('button.edit');
-  const deleteButton = taskListItem.querySelector('button.delete');
-
-  editButton.onclick = toggleEditMode;
-  deleteButton.onclick = deleteTask;
-  checkBox.onchange = toggleHandler;
-};
-
-const bindEventsToAllTasks = function (taskList, toggleHandler) {
-  for (let i = 0; i < taskList.children.length; i++) {
-    bindTaskEvents(taskList.children[i], toggleHandler);
-  }
-};
-
-bindEventsToAllTasks(incompleteTasksList, markTaskCompleted);
-bindEventsToAllTasks(completedTasksList, markTaskIncomplete);
